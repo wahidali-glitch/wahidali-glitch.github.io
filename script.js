@@ -217,23 +217,48 @@ buttons.forEach(button => {
 });
 
 // ===============================
-// FLOATING HERO CARD
+// FLOATING HERO CARD — FIXED
+// Max tilt: 8 degrees only
+// Resets when mouse leaves window
 // ===============================
 
 const heroCard =
     document.querySelector(".hero-card");
 
+function clamp(value, min, max){
+    return Math.min(Math.max(value, min), max);
+}
+
 window.addEventListener("mousemove", e => {
 
-    const x =
-        (window.innerWidth / 2 - e.pageX) / 35;
+    const x = clamp(
+        (window.innerWidth / 2 - e.pageX) / 35,
+        -8,
+        8
+    );
 
-    const y =
-        (window.innerHeight / 2 - e.pageY) / 35;
+    const y = clamp(
+        (window.innerHeight / 2 - e.pageY) / 35,
+        -8,
+        8
+    );
 
     heroCard.style.transform =
-        `rotateY(${x}deg)
-         rotateX(${-y}deg)`;
+        `rotateY(${x}deg) rotateX(${-y}deg)`;
+});
+
+// Reset card rotation when mouse leaves the window
+window.addEventListener("mouseleave", () => {
+
+    heroCard.style.transition =
+        "transform 0.6s ease";
+
+    heroCard.style.transform =
+        "rotateY(0deg) rotateX(0deg)";
+
+    setTimeout(() => {
+        heroCard.style.transition = "";
+    }, 600);
 });
 
 // ===============================

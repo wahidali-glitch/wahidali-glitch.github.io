@@ -600,3 +600,65 @@ body{
         flex-direction:column;
     }
 }
+/* ===============================
+   ADD THESE STYLES TO style.css
+   (paste at the very bottom)
+   =============================== */
+
+/* FEATURED CARD — Netflix project highlight */
+.featured-card {
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+    position: relative;
+}
+
+.featured-card::before {
+    content: "⭐ Featured";
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+/* LIVE BADGE */
+.live-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #4ade80;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+/* PROJECT BUTTONS ROW */
+.project-btns {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+/* LIVE DEMO BUTTON */
+.live-btn {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.live-btn:hover {
+    opacity: 0.88;
+    transform: translateY(-2px);
+}
